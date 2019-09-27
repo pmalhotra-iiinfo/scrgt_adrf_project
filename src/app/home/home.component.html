@@ -1,0 +1,18 @@
+<div class="center">
+	<h2 *ngIf="getKeycloakService().isLogged()" class="usernameClass"> Wellcome {{agentProfile}}</h2>
+	
+	<ul>
+	
+		<li>
+			<button (click)="getKeycloakService().login()" class="btn btn-primary">Login</button>
+		</li>
+		<li *ngIf="getKeycloakService().isLogged()">
+			<button (click)="getKeycloakService().getToken()" class="btn btn-secondary mt-2">GetToken</button>
+		</li>
+		
+		<li *ngIf="getKeycloakService().isLogged()">
+			<button class="btn btn-success mt-2" (click)="getKeycloakService().logout()">Logout</button>
+		</li>
+	</ul>
+
+</div>

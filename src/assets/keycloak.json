@@ -1,0 +1,10 @@
+{
+  "realm": "keycloak-auth",
+  "auth-server-url": "http://localhost:8083/auth",
+  "ssl-required": "none",
+  "resource": "frontend",
+  "credentials": {
+    "secret": "36cdf012-1793-4094-9fb0-91c268ee7b47"
+  },
+  "confidential-port": 0
+}
