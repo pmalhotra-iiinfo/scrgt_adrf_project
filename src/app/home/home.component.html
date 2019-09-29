@@ -1,5 +1,5 @@
 <div class="center">
-	<h2 *ngIf="getKeycloakService().isLogged()" class="usernameClass"> Wellcome {{agentProfile}}</h2>
+	<!-- <h2 *ngIf="getKeycloakService().isLogged()" class="usernameClass"> Wellcome {{agentProfile}}</h2> -->
 	
 	<ul>
 	
@@ -11,7 +11,8 @@
 		</li>
 		
 		<li *ngIf="getKeycloakService().isLogged()">
-			<button class="btn btn-success mt-2" (click)="getKeycloakService().logout()">Logout</button>
+			<button class="btn btn-success mt-2" 
+			(click)="getKeycloakService().logout()" >Logout</button>
 		</li>
 	</ul>
 

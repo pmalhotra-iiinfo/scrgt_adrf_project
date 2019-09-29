@@ -20,16 +20,14 @@ export class HomeComponent implements OnInit {
     constructor( private keyCloakService: KeycloakService ) { }
 
     ngOnInit() {
-        this.keyCloakService.loadProfile().then(user => {
-            console.log(user);
-            this.agentProfile = user.username;
-
-        })
+        // this.keyCloakService.loadProfile().then(user => {
+        //                 console.log(user);
+        //                 this.agentProfile = user.username;
+        //             });
     }
-   
 
     getKeycloakService() {
-        return KeycloakService
+        return KeycloakService;
     }
 
 

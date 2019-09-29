@@ -48,11 +48,27 @@ export class KeycloakService {
         KeycloakService.auth.authz.logout(environment.baseUrl);
     }
 
+    loadProfile(): Promise<any> {
+        return new Promise<any>((resolve, reject) => {
+          if (KeycloakService.auth.authz.token) {
+            KeycloakService.auth.authz
+              .loadUserProfile()
+              .success(data => {
+                  console.log(data);
+                resolve(<any>data);
+              })
+              .error(() => {
+                reject('Failed to load profile');
+              });
+          } else {
+            reject('Not loggen in');
+          }
+        })
+      }
     /**
      * Redirects to keycloak login page
      */
     static login() {
-
         KeycloakService.auth.authz.login();
     }
 
@@ -80,22 +96,5 @@ export class KeycloakService {
     static isLogged(): boolean {
         return KeycloakService.auth.authz != null && KeycloakService.auth.authz.authenticated;
     }
-
-    loadProfile(): Promise<any> {
-        return new Promise<any>((resolve, reject) => {
-          if (KeycloakService.auth.authz.token) {
-            KeycloakService.auth.authz
-              .loadUserProfile()
-              .success(data => {
-                resolve(<any>data);
-              })
-              .error(() => {
-                reject('Failed to load profile');
-              });
-          } else {
-            reject('Not loggen in');
-          }
-        })
-      }
     
 }

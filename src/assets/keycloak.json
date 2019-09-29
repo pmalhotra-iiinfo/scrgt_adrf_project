@@ -1,6 +1,6 @@
 {
   "realm": "keycloak-auth",
-  "auth-server-url": "http://localhost:8083/auth",
+  "auth-server-url": "https://18.189.184.97:8443/auth",
   "ssl-required": "none",
   "resource": "frontend",
   "credentials": {
